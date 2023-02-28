@@ -3,6 +3,7 @@
 int main()
 {
     NumberList list = NumberList();
+    //adaugam numere in vector, afisam de fiecare data vectorul curent si la final sortam vectorul
     list.Init();
     list.Add(12);
     list.Print();
