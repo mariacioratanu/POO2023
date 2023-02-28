@@ -8,12 +8,12 @@ void NumberList::Init()
 
 bool NumberList::Add(int x)
 {
-    if (count>=10) return false;
+    if (count>=10) return false; //daca countul este mai mare sau egal cu 10, se va returna false
     v[count++]=x; //adauga valoarea lui x si creste count-ul
     return true;
 }
 
-void NumberList::Sort()
+void NumberList::Sort() //sortarea a doi vectori
 {
     int i, j;
     for(i=0;i<count-1;i++)
@@ -21,14 +21,14 @@ void NumberList::Sort()
         {
             if(v[i]>v[j])
             {
-                int aux=v[i];
+                int aux=v[i]; //utilizarea unei variabile auxiliare pentru sortare
                 v[i]=v[j];
                 v[j]=aux;
             }
         }
 }
 
-void NumberList::Print()
+void NumberList::Print() //afisarea vectorului curent
 {
     int i;
     for(i=0;i<count;i++)
