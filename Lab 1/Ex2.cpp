@@ -2,7 +2,7 @@
 #include <cstring>
 using namespace std;
 
-int stringToNumber(char number[])
+int stringToNumber(char number[]) //transforma sirul de caractere in numar
 {
     int suma = 0, i, n;
     n=strlen(number);
@@ -11,7 +11,7 @@ int stringToNumber(char number[])
     return suma;
 }
 
-void newline(char sir[])
+void newline(char sir[]) 
 {
     int i, n;
     n=strlen(sir);
@@ -29,17 +29,17 @@ int main() {
     char data[100];
     int suma = 0;
 
-    if ((fptr = fopen("in.txt", "r")) == NULL)
+    if ((fptr = fopen("in.txt", "r")) == NULL) //deschide fisierul pentru citire
     {
         printf("Eroare la deschiderea fisierului.");
         exit(1);
     }
 
-    while (fgets(data, 100, fptr) != NULL)
+    while (fgets(data, 100, fptr) != NULL) //cat timp mai exista numere de citit in sir
     {
         newline(data);
-        suma=suma+stringToNumber(data);
+        suma=suma+stringToNumber(data); //adaugam numerele la suma
     }
-    printf("%d", suma);
-    fclose(fptr);
+    printf("%d", suma); //afisam suma
+    fclose(fptr); //inchidem fisierul
 }
