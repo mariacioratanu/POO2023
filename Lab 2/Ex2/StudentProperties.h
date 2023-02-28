@@ -1,3 +1,4 @@
+//clasa care contine proprietatile unui student
 class Student
 {
     char nume[50];
