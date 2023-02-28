@@ -4,7 +4,7 @@ bool isPrime(int n)
 {
     for (int tr = 2; tr < n / 2; tr++)
         if ((n % tr) == 0)
-            return false;
+            return false; //daca gasim un divizor, stim ca numarul dat nu mai este prim
     return true;
 }
 int main()
