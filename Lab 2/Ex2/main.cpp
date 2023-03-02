@@ -20,17 +20,17 @@ int main()
     student2.setNotaIstorie(5);
 
     cout<<"Note istorie: "<<endl;
-    cout<<student1.getName()<<" : "<<student1.getNotaIstorie()<<endl;
-    cout<<student2.getName()<<" : "<<student2.getNotaIstorie()<<endl<<endl;
+    cout<<student1.getName()<<" are nota: "<<student1.getNotaIstorie()<<endl;
+    cout<<student2.getName()<<" are nota: "<<student2.getNotaIstorie()<<endl<<endl;
     cout<<"Note engleza: "<<endl;
-    cout<<student1.getNume()<<" : "<<student1.getNotaEngleza()<<endl;
-    cout<<student2.getName()<<" : "<<student2.getNotaEngleza()<<endl<<endl;
+    cout<<student1.getNume()<<" are nota: "<<student1.getNotaEngleza()<<endl;
+    cout<<student2.getName()<<" are nota: "<<student2.getNotaEngleza()<<endl<<endl;
     cout<"Notele la matematica: "<<endl;
-    cout<<student1.getNume()<<" "<<student1.getNotaMate()<<endl;
-    cout<<student2.getNume()<< " : "<<student2.getNotaMate()<<endl<<endl;
+    cout<<student1.getNume()<<" are nota:"<<student1.getNotaMate()<<endl;
+    cout<<student2.getNume()<< " are nota: "<<student2.getNotaMate()<<endl<<endl;
     cout<<"Nota finala: "<<endl;
-    cout<<student1.getNume()<<" : "<<student1.getNotaFinala()<<endl;
-    cout<<student2.getNume()<<" : "<<student2.getNotaFinala()<<endl<<endl;
+    cout<<student1.getNume()<<" are nota: "<<student1.getNotaFinala()<<endl;
+    cout<<student2.getNume()<<" are nota: "<<student2.getNotaFinala()<<endl<<endl;
     cout<<"Compara numele: "<<comparaNume(student1, student2)<<endl<<endl;
     cout<<"Compara rezultate mate: "<<comparaNotaMate(student1, student2)<<endl<<endl;
     cout<<"Compara rezultate engleza: "<<comparaNotaEngleza(student1, student2)<<endl<<endl;
