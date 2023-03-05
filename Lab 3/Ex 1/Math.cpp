@@ -44,13 +44,17 @@ int Math::Mul(double a, double b, double c)
 
 int Math::Add(int count, ...)
 {
+    //count=numărul de numere întregi din lista de variabile
+    //...=lista de pointeri intregi
     int suma=0, i, *p=&count;
     for(i=0;i<count;i++)
     {
-        p=p+2;
+        p++;
         suma=suma+*p;
     }
     return suma;
+    //Functia initializează un pointer p la adresa parametrului de numarare
+    //si adauga fiecare numar intreg indicat de pointer la variabila suma
 }
 
 char* Math::Add(const char* a, const char* b)
