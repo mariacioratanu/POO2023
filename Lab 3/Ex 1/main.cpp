@@ -13,7 +13,7 @@ int main()
     cout<<op.Mul(1, 2, 3)<<endl;
     cout<<op.Mul(4.5, 5.5)<<endl;
     cout<<op.Mul(7.5, 8.5, 9.5)<<endl;
-    cout<<op.Add(1, 3, 6, 2, 9, 7, 3)<<endl;
+    cout<<op.Add(4, 1, 2, 3, 4)<<endl;
     cout<<op.Add("buna", "ziua")<<endl;
     cout<<op.Add(nullptr, nullptr)<<endl;
     cout<<op.Add(nullptr, "ziua")<<endl;
