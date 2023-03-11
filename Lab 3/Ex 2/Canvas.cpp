@@ -26,8 +26,8 @@ void Canvas::DrawCircle(int x, int y, int raza, char caracter)
     for(xvar=0; xvar<this->height; xvar++)
         for(yvar=0; yvar<this->width; yvar++)
         {
-            int D=pow(xvar-x, 2)+pow(yvar-y, 2);
-            if(D>=r2-raza/2 && D<=r2+raza/2)
+            int d=pow(xvar-x, 2)+pow(yvar-y, 2);
+            if(d>=r2-raza/2 && d<=r2+raza/2)
                 this->SetPoint(xvar, yvar, caracter);
         }
 }
@@ -39,8 +39,8 @@ void Canvas::FillCircle(int x, int y, int raza, char caracter)
     for(xvar=0; xvar<this->height; xvar++)
         for(yvar=0; yvar<this->width; yvar++)
         {
-            int D=pow(xvar-x, 2)+pow(yvar-y, 2);
-            if(D<=r2+raza/2)
+            int d=pow(xvar-x, 2)+pow(yvar-y, 2);
+            if(d<=r2+raza/2)
                 this->SetPoint(xvar, yvar, caracter);
         }
 }
@@ -74,18 +74,18 @@ void Canvas::DrawLine(int x1, int y1, int x2, int y2, char ch)
 {
     int dx=x2-x1;
     int dy=y2-y1;
-    int D=2*dy-dx;
+    int d=2*dy-dx;
     int y=y1;
     int x;
     for(x=x1;x<=x2;x++)
     {
         this->SetPoint(x, y, ch);
-        if(D>0)
+        if(d>0)
         {
             y++;
-            D=D-2*dx;
+            d=d-2*dx;
         }
-        D=D+2*dy;
+        d=d+2*dy;
     }
 }
 
