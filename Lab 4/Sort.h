@@ -5,14 +5,15 @@ using namespace std;
 
 class Sort
 {
-    //add data members
+    //data members:
+  private:
     int* v;
     int size;
     int partition(int low, int high, bool ascending);
     void quickSort(int low, int high, bool ascending);
 
   public:
-    //add contructors
+    //contructors:
 
     /*1. create the list that needs to be sorted out of random values within a specific
 interval(min, max). The constructor will recieve 3 parameters(the number of elements
