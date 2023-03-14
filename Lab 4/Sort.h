@@ -1,6 +1,8 @@
 #pragma once
 #include <initializer_list>
 using namespace std;
+//class definition:
+
 class Sort
 {
     //add data members
@@ -28,10 +30,12 @@ separated from the rest of the number with a comma). It is assumed that the stri
 (no space, only numerical characters and commas)*/
     Sort(const char* string);
 
+    //funtions:
+    
     void InsertSort(bool ascendent=false);
     void QuickSort(bool ascendent=false);
     void BubbleSort(bool ascendent=false);
     void Print();
-    int GetElementsCount();
-    int GetElementFromIndex(int index);
+    int GetElementsCount(); //the number of elements
+    int GetElementFromIndex(int index); //the element from a chosen index
 };
