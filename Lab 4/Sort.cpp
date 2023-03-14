@@ -114,8 +114,8 @@ void Sort::quickSort(int low, int high, bool ascending)
     if(low<high)
     {
         int k=this->partition(low, high, ascending);
-        this->quick_sort(low, k-1, ascending);
-        this->quick_sort(k+1, high, ascending);
+        this->quickSort(low, k-1, ascending);
+        this->quickSort(k+1, high, ascending);
     }
 }
 
