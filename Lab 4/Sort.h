@@ -7,7 +7,7 @@ class Sort
     int* v;
     int size;
     int partition(int low, int high, bool ascending);
-    void quick_sort(int low, int high, bool ascending);
+    void quickSort(int low, int high, bool ascending);
 
   public:
     //add contructors
