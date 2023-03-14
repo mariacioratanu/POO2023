@@ -69,17 +69,20 @@ Sort::Sort(const char* string) : size(0)
 
 void Sort::InsertSort(bool ascendent)
 {
+    //the array is virtually split into a sorted and an unsorted part.
+    //values from the unsorted part are picked and placed at the correct position in the sorted part
     int i;
     for(i=1;i<this->size;i++)
     {
-        int j=i-1;
-        int temp=v[i];
-        while(ascendent!=0 && j>=0 && v[j]>temp)
+        int j=i-1; //traverse the sorted portion of the array, to find the correct position for the element at index i.
+        int temp=v[i]; //temp is initialized to the value of the element at index i, so it can be inserted into the correct position
+        
+        while(ascendent!=0 && j>=0 && v[j]>temp) //when the array is being sorted in ascending order 
         {
             v[j+1]=v[j];
             j--;
         }
-        while(ascendent==0 && j>=0 && v[j]<temp)
+        while(ascendent==0 && j>=0 && v[j]<temp) //when the array is being sorted in descending order
         {
             v[j+1]=v[j];
             j--;
@@ -92,10 +95,12 @@ void Sort::InsertSort(bool ascendent)
 int Sort::partition(int low, int high, bool ascending)
 {
     int pivot=low+rand()%(high-low); //generates a random integer number between low and high(both inclusive)
-    swap(v[low], v[pivot]);
+    swap(v[low], v[pivot]);  //the pivot element is at the beginning of the subarray
     int i=low+1,j=high;
     while(i<=j)
     {
+        //compares elements on either side of the pivot and swaps them if necessary 
+        //all elements less than or equal to the pivot are on one side, and all elements greater than it are on the other side
         if(ascending!=0 && v[i]<=v[low] || ascending==0 && v[i]>=v[low])
             i++;
         if(ascending!=0 && v[j]>=v[low] || ascending==0 && v[j]<=v[low])
