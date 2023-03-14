@@ -54,23 +54,24 @@ Sort::Sort(int size, ...):size(size)
 
 Sort::Sort(const char* string) : size(0)
 {
+    //each number is separated from the rest of the number with a comma
     int i, n=strlen(string);
-    for(i=0;i<n;i++)
+    for(i=0;i<n;i++) //counts the number of commas to determine the size of the integer array to be created
         if(string[i]==',')
             this->size++;
     if(n>0)
         this->size++;
     this->v=new int[this->size];
-    char* buffer=new char[n+1];
+    char* buffer=new char[n+1]; //temporary character array
     strcpy(buffer, string);
     int index=0;
-    const char* number=strtok(buffer, ",");
+    const char* number=strtok(buffer, ","); //separate it into individual strings using the delimiter , 
     while(number!=nullptr)
     {
         this->v[index++]=atoi(number);
         number=strtok(nullptr, ",");
     }
-    delete[] buffer;
+    delete[] buffer; //the buffer array is deleted
 }
 
 void Sort::InsertSort(bool ascendent)
