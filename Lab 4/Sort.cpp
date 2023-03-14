@@ -4,27 +4,7 @@
 #include <cstdarg> //for va_end, va_start
 using namespace std;
 
-int Sort::partition(int low, int high, bool ascending)
-{
-    int pivot=low+rand()%(high-low);
-    swap(v[low], v[pivot]);
-    int i=low+1,j=high;
-    while(i<=j)
-    {
-        if(ascending!=0 && v[i]<=v[low] || ascending==0 && v[i]>=v[low])
-            i++;
-        if(ascending!=0 && v[j]>=v[low] || ascending==0 && v[j]<=v[low])
-            j--;
-        if(i<j && (ascending!=0 && v[i]>v[low] && v[j]<v[low] || ascending==0 && v[i]<v[low] && v[j]>v[low]))
-        {
-            swap(v[i], v[j]);
-            i++;
-            j--;
-        }
-    }
-    swap(v[i-1], v[low]);
-    return i-1;
-}
+//constructors: 
 
 Sort::Sort(int size, int min, int max) : size(size)
 {
@@ -109,11 +89,35 @@ void Sort::InsertSort(bool ascendent)
     }
 }
 
-void Sort::quickSort(int low, int high, bool ascending)
+int Sort::partition(int low, int high, bool ascending)
 {
+    int pivot=low+rand()%(high-low); //generates a random integer number between low and high(both inclusive)
+    swap(v[low], v[pivot]);
+    int i=low+1,j=high;
+    while(i<=j)
+    {
+        if(ascending!=0 && v[i]<=v[low] || ascending==0 && v[i]>=v[low])
+            i++;
+        if(ascending!=0 && v[j]>=v[low] || ascending==0 && v[j]<=v[low])
+            j--;
+        if(i<j && (ascending!=0 && v[i]>v[low] && v[j]<v[low] || ascending==0 && v[i]<v[low] && v[j]>v[low]))
+        {
+            swap(v[i], v[j]);
+            i++;
+            j--;
+        }
+    }
+    swap(v[i-1], v[low]);
+    return i-1;
+}
+
+void Sort::quickSort(int low, int high, bool ascending) 
+{
+    //it picks an element as a pivot and partitions the given array around the picked pivot.
     if(low<high)
     {
         int k=this->partition(low, high, ascending);
+        //separately sort elements before partition and after partition
         this->quickSort(low, k-1, ascending);
         this->quickSort(k+1, high, ascending);
     }
@@ -121,17 +125,17 @@ void Sort::quickSort(int low, int high, bool ascending)
 
 void Sort::QuickSort(bool ascendent)
 {
-    this->quickSort(0, this->size-1, ascendent);
+    this->quickSort(0, this->size-1, ascendent); //low=0, high=size-1
 }
 
 void Sort::BubbleSort(bool ascendent)
 {
     int i, last=this->size-1;
-    while(last>0)
+    while(last>0) //we still have new elements
     {
         int n=last;
         last=0;
-        for(i=0; i<n; i++)
+        for(i=0; i<n; i++)  //repeatedly swapps the adjacent elements if they are in the wrong order
         {
             if(ascendent!=0 && v[i]>v[i+1] || ascendent==0 && v[i]<v[i+1])
             {
@@ -146,17 +150,17 @@ void Sort::Print()
 {
     int i;
     for(i=0;i<this->size;i++)
-        cout<<(this->v[i])<<' ';
+        cout<<(this->v[i])<<' '; //prints all the elements
     cout<<endl;
 }
 
 int Sort::GetElementsCount()
 {
-    return this->size;
+    return this->size; //returns the size of the ”vector”
 }
 
-int Sort::GetElementFromIndex(int index)
+int Sort::GetElementFromIndex(int index) 
 {
-    if(index>=0 && index<this->size)
-        return this->v[index];
+    if(index>=0 && index<this->size) //the index number is correct (between 0 and size-1)
+        return this->v[index]; //returns the value of the number from that index
 }
