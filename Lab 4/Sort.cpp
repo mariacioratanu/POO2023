@@ -74,10 +74,10 @@ Sort::Sort(const char* string) : size(0)
     char* buffer=new char[n+1]; //temporary character array
     strcpy(buffer, string);
     int index=0;
-    const char* number=strtok(buffer, ","); //separate it into individual strings using the delimiter , 
+    char* number=strtok(buffer, ","); //separate it into individual strings using the delimiter , 
     while(number!=nullptr)
     {
-        this->v[index++]=atoi(number);
+        this->v[index++]=stringToNumber(number);
         number=strtok(nullptr, ",");
     }
     delete[] buffer; //the buffer array is deleted
