@@ -52,6 +52,15 @@ Sort::Sort(int size, ...):size(size)
     va_end(args);
 }
 
+int stringToNumber(char number[]) //converts a string to a number - atoi
+{
+    int s=0, i, n;
+    n=strlen(number);
+    for(i=0; i<n; i++)
+        s=s*10+number[i]-'0';
+    return s;
+}
+
 Sort::Sort(const char* string) : size(0)
 {
     //each number is separated from the rest of the number with a comma
