@@ -11,26 +11,31 @@ Sort::Sort(int size, int min, int max) : size(size)
     int i;
     this->v=new int[size];
     for(i=0;i<size;i++)
-        this->v[i]=min+1+rand()%(max-min-1);
+        //for each element, it generates a random number between min+1 and max-1
+        this->v[i]=min+1+rand()%(max-min-1); //this random number is then stored in the array at the current index
 }
 
-Sort::Sort(std::initializer_list<int> list)
+Sort::Sort(std::initializer_list<int> list) //initializer_list is a type of container that allows you to initialize an object with a list of values
 {
+    //this constructor allows the Sort object to be initialized with a list of values, which are then stored in a dynamically allocated array.
     int i;
     this->size=list.size();
     this->v=new int[list.size()];
     initializer_list<int>::iterator it=list.begin();
+    //for each element, it assigns the value to the corresponding element of the dynamically allocated array
     for(i=0;i<list.size();i++)
     {
         this->v[i]=*it;
-        it++;
+        it++; // used to access its elements
     }
 }
 
 Sort::Sort(const int* v, int size):size(size)
 {
+    //list sorted from an existing vector
     int i;
     this->v=new int[size];
+    //for each element, it assigns the value to the corresponding element of the dynamically allocated array
     for(i=0;i<size;i++)
         this->v[i]=v[i];
 }
@@ -39,6 +44,7 @@ Sort::Sort(int size, ...):size(size)
 {
     int i;
     this->v=new int[size];
+    //used to access the variable arguments:
     va_list args;
     va_start(args, size);
     for(i=0;i<size;i++)
