@@ -23,7 +23,10 @@ int main()
         cout<<"a is bigger than b"<<endl;
     else
         cout<<"b is bigger than a"<<endl;
-
+    if(b<=c)
+        cout<<"b is smaller (or equal) than c"<<endl;
+    else cout<<"c is smaller than b"<<endl;
+    
     a=255; //a will be 11111111 (value 255 from base 10 in base 2)
     d=d+a;
     d.Print(); //12600
