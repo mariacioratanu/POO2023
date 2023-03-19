@@ -5,15 +5,15 @@
 using namespace std;
 
 void Number::calculateDecimal()
-{
+{   //converts a number represented in a given base into its decimal equivalent
     int i, sub;
     decimal=0;
     for(i=0, sub;i<vector_size; i++)
     {
-        if('0'<=vector[i] && vector[i]<='9')
-            sub=48;
-        else
-            sub=55;
+        if('0'<=vector[i] && vector[i]<='9') //the character is a digit
+            sub=48; //ASCII value of '0'
+        else //the character is a letter 
+            sub=55; //ASCII value of 'A' minus 10(A=11)
         decimal=decimal+(vector[i]-sub)*pow(base, vector_size-i-1);
     }
 }
