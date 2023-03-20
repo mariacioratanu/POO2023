@@ -95,8 +95,8 @@ void Canvas::Print()
     for(i=0;i<height;i++)
     {
         for(j=0;j<width;j++)
-            cout<<canvas[i][j];
-        cout<<endl;
+            std::cout<<canvas[i][j];
+        std::cout<<endl;
     }
 }
 
