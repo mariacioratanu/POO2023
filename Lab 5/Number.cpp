@@ -205,11 +205,14 @@ bool Number::operator!=(const Number& obj) const
 
 void Number::operator=(const Number& obj)
 {
-    if(this->vector_size!=obj.vector_size)
+    //defines the copy assignment operator (=), creating a deep copy of the vector 
+    if(this->vector_size!=obj.vector_size) //checks whether the current object has a different size than the object being copied
     {
+        //deletes the current vector and allocates a new one 
         delete[] this->vector;
         this->vector=new char[obj.vector_size+1];
     }
+    //sets the base, vector_size, and decimal of the current object to the corresponding values of the other object
     this->base=obj.base;
     this->vector_size=obj.vector_size;
     this->decimal=obj.decimal;
@@ -218,26 +221,28 @@ void Number::operator=(const Number& obj)
 
 void Number::operator=(long long unsigned value)
 {
-    this->vector_size=0;
-    this->base=10;
-    this->decimal=value;
-    this->SwitchBase(this->base);
+    //defines the assignment operator (=)
+    this->vector_size=0; //clears the vector member variable
+    this->base=10; //sets the base to 10 (decimal)
+    this->decimal=value; //sets the decimal member variable to the input value
+    this->SwitchBase(this->base);//converts the decimal value to a specific base
 }
 
 void Number::operator=(const char* value)
 {
-    delete [] this->vector;
+    delete [] this->vector; //first deletes the existing vector array
     this->vector_size=strlen(value);
-    this->vector=new char[vector_size+1];
-    this->base=10;
+    this->vector=new char[vector_size+1]; //allocates a new char array with a size of vector_size+1
+    this->base=10; //the value string is assumed to be in base 10
     strcpy(vector, value);
     this->calculateDecimal();
 }
 
 Number operator+(const Number& lfs, const Number& rhs)
 {
-    int new_base=std::max(lfs.base, rhs.base);
-    char* temporary_vector = Number::processingVector(lfs.decimal+rhs.decimal, new_base);
+    //takes two Number objects, lfs and rhs and returns their sum
+    int new_base=std::max(lfs.base, rhs.base); //finds the maximum base of the two numbers 
+    char* temporary_vector = Number::processingVector(lfs.decimal+rhs.decimal, new_base); //takes the sum of the decimal parts of the two numbers and returns the sum in the given base
     Number instance{ temporary_vector, new_base };
     delete[] temporary_vector;
     return instance;
@@ -245,7 +250,8 @@ Number operator+(const Number& lfs, const Number& rhs)
 
 Number operator-(const Number& lfs, const Number& rhs)
 {
-    int new_base=std::max(lfs.base, rhs.base);
+    //takes two Number objects, lfs and rhs and returns their difference
+    int new_base=std::max(lfs.base, rhs.base); //finds the maximum base of the two numbers
     char* temporary_vector = Number::processingVector(lfs.decimal-rhs.decimal, new_base);
 
     Number instance{ temporary_vector, new_base };
