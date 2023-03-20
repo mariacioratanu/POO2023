@@ -171,8 +171,8 @@ void Sort::Print()
 {
     int i;
     for(i=0;i<this->size;i++)
-        cout<<(this->v[i])<<' '; //prints all the elements
-    cout<<endl;
+        std::cout<<(this->v[i])<<' '; //prints all the elements
+    std::cout<<endl;
 }
 
 int Sort::GetElementsCount()
