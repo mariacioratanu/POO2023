@@ -32,7 +32,7 @@ void NumberList::Print() //afisarea vectorului curent
 {
     int i;
     for(i=0;i<count;i++)
-        cout<<v[i]<<" ";
+        std::cout<<v[i]<<" ";
 
-    cout<<endl;
+    std::cout<<endl;
 }
