@@ -80,21 +80,23 @@ Number::~Number()
 void Number::SwitchBase(int newBase)
 {
     //used to convert a number from its current base to a new base
+    //calculates the number of digits required to represent the Number object in the new base:
     int size_required=floor(log10(this->decimal)/log10(newBase))+1;
-    if(size_required!=this->vector_size)
+    if(size_required!=this->vector_size) //if the size required for the new representation is different from the current size of the vector
     {
         if(this->vector!=nullptr)
-            delete this->vector;
-        this->vector=new char[size_required+1];
+            delete this->vector; //dellocates the old vector
+        this->vector=new char[size_required+1]; //allocates a new vector
         this->vector_size=size_required;
     }
     long long unsigned aux=this->decimal;
     int index=vector_size-1;
+    //actual base conversion:
     while(aux>0)
     {
         int rest=aux%newBase;
         if(0<=rest && rest<=9)
-            vector[index]='0'+rest;
+            vector[index]='0'+rest; 
         else
             vector[index]='A'-10+rest;
         aux/=newBase;
@@ -104,40 +106,47 @@ void Number::SwitchBase(int newBase)
     this->base=newBase;
 }
 
-void Number::Print() const
+void Number::Print() const //the function does not modify the state of the Number object
 {
+    //prints the contents of the vector member variable and a newline
     std::cout<<this->vector<<endl;
 }
 
 int Number::GetDigitsCount() const
 {
+    //returns the number of digits in the vector member variable
     return this->vector_size;
 }
 
 int Number::GetBase() const
 {
+    //returns the value of the "base" of the object pointed to by the "this" pointer
     return this->base;
 }
+
 //if used in a prefix form it will remove the first (most significant digit) from the number;
 Number& Number::operator--()
 {
+    //defines the pre-decrement operator (--)
     char* new_vector = new char[this->vector_size + 1];
     strcpy(new_vector, this->vector);
-    delete []  this->vector;
-    this->vector = new char[this->vector_size];
-    strcpy(this->vector, new_vector + 1);
-    this->vector_size--;
+    delete []  this->vector; //deallocates the old vector
+    this->vector = new char[this->vector_size]; //creates a new char array with a size one less than the old vector
+    strcpy(this->vector, new_vector + 1); //removes the first character from the vector
+    this->vector_size--; //the new size of the vector
     delete [] new_vector;
 
     this->calculateDecimal();
     return *this;
 }
+
 //if used in a post-fix form it will remove the last (least significant) digit from the number;
 Number& Number::operator--(int)
 {
-    char* new_vector=new char[this->vector_size+1];
+    //defines the post-decrement operator (--)
+    char* new_vector=new char[this->vector_size+1]; //allocates a new char array with the same size as the current vector
     strcpy(new_vector, this->vector);
-    new_vector[this->vector_size-1]='\0';
+    new_vector[this->vector_size-1]='\0'; //sets the second-to-last character to '\0' to remove the last character
     delete[] this->vector;
     this->vector=new char[this->vector_size];
     strcpy(this->vector, new_vector);
@@ -150,38 +159,47 @@ Number& Number::operator--(int)
 
 char Number::operator[](int index) const
 {
+    //the function returns the char value at that index in the vector
     if(0<=index && index<this->vector_size)
         return this->vector[index];
-    return '?';
+    return '?'; //index is not within the valid range of indices for the vector
 }
 
+//comparison operator functions:
 bool Number::operator>(const Number& obj) const
 {
+    //compares the decimal values of two Number objects
+    //returns true if the decimal value of the current object is greater than the decimal value of the argument object
     return this->decimal>obj.decimal;
 }
 
 bool Number::operator>=(const Number& obj) const
 {
+    //greater than or equal to
     return *this>obj || *this==obj;
 }
 
 bool Number::operator<(const Number& obj) const
 {
+    //less than
     return !(*this>=obj);
 }
 
 bool Number::operator<=(const Number& obj) const
 {
+    //less than or equal to
     return *this<obj || *this==obj;
 }
 
 bool Number::operator==(const Number& obj) const
 {
+    //equal
     return this->decimal==obj.decimal;
 }
 
 bool Number::operator!=(const Number& obj) const
 {
+    //not equal
     return *this==obj;
 }
 
