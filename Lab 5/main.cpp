@@ -9,10 +9,10 @@ int main()
     Number c("FF", 16); //c is in base 16
     Number d=12345; //d is in base 10
 
-    cout<<"a has "<<a.GetDigitsCount()<<" digits and it is written in base "<<a.GetBase()<<endl;
+    std::cout<<"a has "<<a.GetDigitsCount()<<" digits and it is written in base "<<a.GetBase()<<endl;
     int i;
     for(i=0; i<a.GetDigitsCount(); i++)
-            cout<<"a["<<i<<"]="<<a[i]<<endl; //printing each digit and its index
+            std::cout<<"a["<<i<<"]="<<a[i]<<endl; //printing each digit and its index
     a.Print(); //10110010
     b.Print(); //734
     a=(b+c-a)+a; //after this a will be in base 16 (a=2DB)
@@ -20,12 +20,12 @@ int main()
     a.Print();
     b.Print();
     if(a>b)
-        cout<<"a is bigger than b"<<endl;
+        std::cout<<"a is bigger than b"<<endl;
     else
-        cout<<"b is bigger than a"<<endl;
+        std::cout<<"b is bigger than a"<<endl;
     if(b<=c)
-        cout<<"b is smaller (or equal) than c"<<endl;
-    else cout<<"c is smaller than b"<<endl;
+        std::cout<<"b is smaller (or equal) than c"<<endl;
+    else std::cout<<"c is smaller than b"<<endl;
     
     a=255; //a will be 11111111 (value 255 from base 10 in base 2)
     d=d+a;
