@@ -106,7 +106,7 @@ void Number::SwitchBase(int newBase)
 
 void Number::Print() const
 {
-    cout<<this->vector<<endl;
+    std::cout<<this->vector<<endl;
 }
 
 int Number::GetDigitsCount() const
