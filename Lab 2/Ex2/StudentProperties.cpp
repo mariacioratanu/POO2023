@@ -10,7 +10,7 @@ void Student::setNume(const char* nume)
     if(strlen(nume)<=50) //setam ca numele sa aiba maxim 50 de caractere
         strcpy(this->nume, nume);
     else
-        cout<<"Numele este prea lung.";
+        std::cout<<"Numele este prea lung.";
 }
 const char* Student::getNume() const
 {
@@ -22,7 +22,7 @@ void Student::setNotaMate(float nota)
     if(nota>= 1 && nota<=10) //nota poate lua valori doar intre 1 si 10
         this->notaMate=nota;
     else
-        cout<<"Nota trebuie sa fie intre 1 si 10.";
+        std::cout<<"Nota trebuie sa fie intre 1 si 10.";
 }
 float Student::getNotaMate() const 
 {
@@ -34,7 +34,7 @@ void Student::setNotaEngleza(float nota)
     if (nota>= 1 && nota<= 10) //nota poate lua valori doar intre 1 si 10
         this->notaEngleza=nota;
     else
-        cout<<"Nota trebuie sa fie intre 1 si 10.";
+        std::cout<<"Nota trebuie sa fie intre 1 si 10.";
 }
 float Student::getNotaEngleza() const 
 {
@@ -46,7 +46,7 @@ void Student::setNotaIstorie(float nota)
     if (nota>= 1 && nota<= 10) //nota poate lua valori doar intre 1 si 10
         this->notaIstorie=nota;
     else
-        cout<<"Nota trebuie sa fie intre 1 si 10.";
+        std::cout<<"Nota trebuie sa fie intre 1 si 10.";
 }
 float Student::getNotaIstorie() const 
 {
