@@ -19,23 +19,23 @@ int main()
     student2.setNotaEngleza(7);
     student2.setNotaIstorie(5);
 
-    cout<<"Note istorie: "<<endl;
-    cout<<student1.getName()<<" are nota: "<<student1.getNotaIstorie()<<endl;
-    cout<<student2.getName()<<" are nota: "<<student2.getNotaIstorie()<<endl<<endl;
-    cout<<"Note engleza: "<<endl;
-    cout<<student1.getNume()<<" are nota: "<<student1.getNotaEngleza()<<endl;
-    cout<<student2.getName()<<" are nota: "<<student2.getNotaEngleza()<<endl<<endl;
-    cout<"Notele la matematica: "<<endl;
-    cout<<student1.getNume()<<" are nota:"<<student1.getNotaMate()<<endl;
-    cout<<student2.getNume()<< " are nota: "<<student2.getNotaMate()<<endl<<endl;
-    cout<<"Nota finala: "<<endl;
-    cout<<student1.getNume()<<" are nota: "<<student1.getNotaFinala()<<endl;
-    cout<<student2.getNume()<<" are nota: "<<student2.getNotaFinala()<<endl<<endl;
-    cout<<"Compara numele: "<<comparaNume(student1, student2)<<endl<<endl;
-    cout<<"Compara rezultate mate: "<<comparaNotaMate(student1, student2)<<endl<<endl;
-    cout<<"Compara rezultate engleza: "<<comparaNotaEngleza(student1, student2)<<endl<<endl;
-    cout<<"Compara rezultate istorie: "<<comparaNotaIstorie(student1, student2)<<endl<<endl;
-    cout<<"Compara rezultate finale: "<<comparaNotaFinala(student1, student2)<<endl<<endl;
+    std::cout<<"Note istorie: "<<endl;
+    std::cout<<student1.getName()<<" are nota: "<<student1.getNotaIstorie()<<endl;
+    std::cout<<student2.getName()<<" are nota: "<<student2.getNotaIstorie()<<endl<<endl;
+    std::cout<<"Note engleza: "<<endl;
+    std::cout<<student1.getNume()<<" are nota: "<<student1.getNotaEngleza()<<endl;
+    std::cout<<student2.getName()<<" are nota: "<<student2.getNotaEngleza()<<endl<<endl;
+    std::cout<"Notele la matematica: "<<endl;
+    std::cout<<student1.getNume()<<" are nota:"<<student1.getNotaMate()<<endl;
+    std::cout<<student2.getNume()<< " are nota: "<<student2.getNotaMate()<<endl<<endl;
+    std::cout<<"Nota finala: "<<endl;
+    std::cout<<student1.getNume()<<" are nota: "<<student1.getNotaFinala()<<endl;
+    std::cout<<student2.getNume()<<" are nota: "<<student2.getNotaFinala()<<endl<<endl;
+    std::cout<<"Compara numele: "<<comparaNume(student1, student2)<<endl<<endl;
+    std::cout<<"Compara rezultate mate: "<<comparaNotaMate(student1, student2)<<endl<<endl;
+    std::cout<<"Compara rezultate engleza: "<<comparaNotaEngleza(student1, student2)<<endl<<endl;
+    std::cout<<"Compara rezultate istorie: "<<comparaNotaIstorie(student1, student2)<<endl<<endl;
+    std::cout<<"Compara rezultate finale: "<<comparaNotaFinala(student1, student2)<<endl<<endl;
 
     return 0;
 }
