@@ -1,6 +1,6 @@
 #include "RangeRover.h"
 
-RangeRover::RangeRover() : Car(54, 4)
+RangeRover::RangeRover() : Car(54, 4.5)
 {
     this->average_speed[(int) Weather::Rain]=45;
     this->average_speed[(int) Weather::Snow]=85;
