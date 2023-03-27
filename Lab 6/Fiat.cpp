@@ -1,6 +1,6 @@
 #include "Fiat.h"
 
-Fiat::Fiat() : Car(50, 10)
+Fiat::Fiat() : Car(50, 9.5)
 {
     this->average_speed[(int) Weather::Rain]=100;
     this->average_speed[(int) Weather::Snow]=30;
@@ -9,7 +9,7 @@ Fiat::Fiat() : Car(50, 10)
 
 const char* Fiat::getName()
 {
-    return "Fiat";
+    return "Fiat"; 
 }
 
 double Fiat::getFuelCapacity()
