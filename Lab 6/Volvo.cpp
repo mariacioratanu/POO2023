@@ -1,6 +1,6 @@
 #include "Volvo.h"
 
-Volvo::Volvo() : Car(60, 9)
+Volvo::Volvo() : Car(60, 9.5)
 {
     this->average_speed[(int)Weather::Rain]=80;
     this->average_speed[(int) Weather::Snow]=40;
