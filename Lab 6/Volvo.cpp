@@ -1,28 +1,28 @@
-#include "Dacia.h"
+#include "Volvo.h"
 
-Dacia::Dacia() : Car(60, 9)
+Volvo::Volvo() : Car(60, 9)
 {
     this->average_speed[(int)Weather::Rain]=80;
     this->average_speed[(int) Weather::Snow]=40;
     this->average_speed[(int) Weather::Sunny]=100;
 }
 
-const char* Dacia::getName()
+const char* Volvo::getName()
 {
-    return "Dacia";
+    return "Volvo";
 }
 
-double Dacia::getFuelCapacity()
+double Volvo::getFuelCapacity()
 {
     return this->fuel_capacity;
 }
 
-double Dacia::getFuelConsumption()
+double Volvo::getFuelConsumption()
 {
     return this->fuel_consumption;
 }
 
-double Dacia::getAverageSpeed(Weather weather)
+double Volvo::getAverageSpeed(Weather weather)
 {
     return this->average_speed[(int)weather];
 }
