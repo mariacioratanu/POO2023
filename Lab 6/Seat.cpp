@@ -1,6 +1,6 @@
 #include "Seat.h"
 
-Seat::Seat() : Car(52, 6.5) //fuel capacity=52 and fuel consumption=6.5L/100km
+Seat::Seat() : Car(52, 6) //fuel capacity=52 and fuel consumption=6.5L/100km
 {
     //the constructor for the Seat class
     this->average_speed[(int) Weather::Rain]=38; //km/h
