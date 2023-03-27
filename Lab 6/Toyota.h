@@ -2,10 +2,10 @@
 #include "Car.h"
 #include "Weather.h"
 
-class Toyota : public Car
+class RangeRover : public Car
 {
   public:
-    Toyota();
+    RangeRover();
     double getAverageSpeed(Weather) override;
     const char* getName() override;
     double getFuelCapacity() override;
