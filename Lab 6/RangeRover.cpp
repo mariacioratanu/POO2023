@@ -1,28 +1,28 @@
-#include "Toyota.h"
+#include "RangeRover.h"
 
-Toyota::Toyota() : Car(54, 4)
+RangeRover::RangeRover() : Car(54, 4)
 {
     this->average_speed[(int) Weather::Rain]=45;
     this->average_speed[(int) Weather::Snow]=85;
     this->average_speed[(int) Weather::Sunny]=135;
 }
 
-const char* Toyota::getName()
+const char* RangeRover::getName()
 {
-    return "Toyota";
+    return "RangeRover";
 }
 
-double Toyota::getFuelCapacity()
+double RangeRover::getFuelCapacity()
 {
     return this->fuel_capacity;
 }
 
-double Toyota::getFuelConsumption()
+double RangeRover::getFuelConsumption()
 {
     return this->fuel_consumption;
 }
 
-double Toyota::getAverageSpeed(Weather weather)
+double RangeRover::getAverageSpeed(Weather weather)
 {
     return this->average_speed[(int)weather];
 }
