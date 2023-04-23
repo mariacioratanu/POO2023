@@ -51,31 +51,31 @@ public:
             {
                 if (sibling == this) //if the sibling is the current node
                 {
-                    return *this; // return the current node
+                    return *this; //return the current node
                 }
                 sibling = sibling->next_sibling;
             }
-            throw std::runtime_error("Node not found."); // if the current node is not found in the siblings of the parent node, throw an error
+            throw std::runtime_error("Node not found."); //if the current node is not found in the siblings of the parent node, throw an error
         }
     }
 
-    // deletes the current node
+    //deletes the current node
     void delete_node()
     {
-        if (parent) // if the current node has a parent
+        if (parent) //if the current node has a parent
         {
-            if (parent->first_child == this) // if the current node is the first child of the parent
+            if (parent->first_child == this) //if the current node is the first child of the parent
             {
-                parent->first_child = next_sibling; // set the first child of the parent to the next sibling of the current node
+                parent->first_child = next_sibling; //set the first child of the parent to the next sibling of the current node
             }
-            else // if the current node is not the first child of the parent
+            else //if the current node is not the first child of the parent
             {
                 TreeNode<T>* sibling = parent->first_child;
-                while (sibling->next_sibling != this) // traverse the siblings until the current node is reached
+                while (sibling->next_sibling != this) //traverse the siblings until the current node is reached
                 {
                     sibling = sibling->next_sibling;
                 }
-                sibling->next_sibling = next_sibling; // set the next sibling of the previous node to the next sibling of the current node
+                sibling->next_sibling = next_sibling; //set the next sibling of the previous node to the next sibling of the current node
             }
             parent = nullptr; //set the parent of the current node to null
         }
