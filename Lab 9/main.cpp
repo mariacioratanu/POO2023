@@ -11,13 +11,6 @@ int main()
     m[20] = "test";
     m[30] = "Poo";
 
-    // Create another map with the same key-value pairs as the first map
-    Map<int, const char*> t;
-    t[10] = "C++";
-
-    // Check if the first map includes the second map
-    std::cout << std::boolalpha << m.Includes(t) << "\n";
-
     // Iterate over the first map using a range-based for loop
     // The loop variable is a structured binding that captures
     // the key, value, and index of each key-value pair
