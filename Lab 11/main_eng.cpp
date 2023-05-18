@@ -92,8 +92,7 @@ void insertionSortCorrect(std::vector<T>& elements)
 }
 
 
-//Part III: Testing the algorithm and identifying errors
-
+//Testing the algorithm and identifying errors
 int main()
 {
     //Vector of numbers for testing
