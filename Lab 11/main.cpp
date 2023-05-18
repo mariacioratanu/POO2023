@@ -2,7 +2,6 @@
 #include <vector>
 #include <cassert>
 
-using namespace std;
 
 //Partea I:scrierea
 
@@ -10,7 +9,7 @@ using namespace std;
 //Selection sort templetizat
 //(am adaugat comentariile dupa ce l-am trimis colegei mele)
 template<typename T>
-void selectionSortCuErori(vector<T>& elements)
+void selectionSortCuErori(std::vector<T>& elements)
 {
     int n=elements.size();
     int i, j;
@@ -25,13 +24,13 @@ void selectionSortCuErori(vector<T>& elements)
             }
         }
         if (minIndex!=i)
-            swap(elements[j], elements[i]);
+            std::swap(elements[j], elements[i]);
     }
 }
 
 //Aceeași funcție de Selection Sort, doar că fără erori
 template<typename T>
-vector<T> selectionSortCorect(vector<T>& elements)
+std::vector<T> selectionSortCorect(std::vector<T>& elements)
 {
     int n=elements.size();
     int i, j;
@@ -45,8 +44,8 @@ vector<T> selectionSortCorect(vector<T>& elements)
                 minIndex=j;
             }
         }
-        if (minIndex!=i)
-            swap(elements[i], elements[minIndex]);
+        if(minIndex!=i)
+            std::swap(elements[i], elements[minIndex]);
     }
 }
 
@@ -56,7 +55,7 @@ vector<T> selectionSortCorect(vector<T>& elements)
 //Algoritmul scris de colega mea, cu cele 5 erori incluse:
 //InsertionSort
 template<typename T>
-void insertionSortCuErori(vector<T>& elements)
+void insertionSortCuErori(std::vector<T>& elements)
 {
     int n=elements.size(), i, j;
     for(i=1; i<n; i++)
@@ -74,7 +73,7 @@ void insertionSortCuErori(vector<T>& elements)
 
 //Algoritmul ei corectat de mine, dupa testare:
 template<typename T>
-void insertionSortCorect(vector<T>& elements)
+void insertionSortCorect(std::vector<T>& elements)
 {
     int n=elements.size(), i, j;
     for(i=1; i<n; i++)
@@ -96,22 +95,22 @@ int main()
 {
 
     // Vectorul de numere pentru testare
-    vector<int> numbers={5, 2, 7, 1, 9, 12, 4, 10, 11, 6};
-    vector<int> numbersCopy=numbers; // Copie a vectorului inițial
+    std::vector<int> numbers={5, 2, 7, 1, 9, 12, 4, 10, 11, 6};
+    std::vector<int> numbersCopy=numbers; // Copie a vectorului inițial
 
     //Insertion Sort cu erori
     insertionSortCuErori(numbers);
-    cout<<"Insertion Sort cu erori: ";
+    std::cout<<"Insertion Sort cu erori: ";
     for (const auto& num : numbers)
-        cout<<num<<" ";
-    cout<<endl;
+        std::cout<<num<<" ";
+    std::cout<<std::endl;
 
     //Insertion Sort corect
     insertionSortCorect(numbersCopy);
-    cout<<"Insertion Sort corect: ";
+    std::cout<<"Insertion Sort corect: ";
     for(const auto& num : numbersCopy)
-        cout<<num<<" ";
-    cout<<endl;
+        std::cout<<num<<" ";
+    std::cout<<std::endl;
 
     //Verificari & cautare erori
     int n=numbers.size(), i, j;
@@ -119,15 +118,15 @@ int main()
     for(i=0; i<n-1; i++)
         for(j=i+1; j<n; j++)
             assert(numbers[i]<=numbers[j] && "nu este crescator");
-    cout<<"Vectorul este sortat crescator."<<endl;
+    std::cout<<"Vectorul este sortat crescator."<<std::endl;
 
     //Testam daca vectorul are elemente distincte
     for(i=0; i<n-1; i++)
         assert(numbers[i]!=numbers[i+1] && "nu sunt distincte");
-    cout<<"Vectorul are elemente distincte."<<endl;
+    std::cout<<"Vectorul are elemente distincte."<<std::endl;
 
     //Verifica daca vectorul este identic cu rezultatul corect
-    assert(numbers == vector<int>({1, 2, 4, 5, 6, 7, 9, 10, 11, 12}));
+    assert(numbers==std::vector<int>({1, 2, 4, 5, 6, 7, 9, 10, 11, 12}));
 
     //Alte erori care pot fi relevante
     assert(numbers[0]<numbers[1]); //Eroarea 1: Verifică dacă primul element este mai mic decât al doilea element
@@ -136,7 +135,7 @@ int main()
     assert(numbers[0]==numbers[3]); // Eroarea 4: Verifică dacă primul element este egal cu al patrulea element
     assert(numbers.size()==10); // Eroarea 5: Verifică dacă dimensiunea vectorului este egală cu 5
 
-    cout<<"Toate testele au fost trecute cu succes!"<<endl;
+    std::cout<<"Toate testele au fost trecute cu succes!"<<std::endl;
 
     return 0;
 }
