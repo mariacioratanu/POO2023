@@ -45,7 +45,7 @@ private:
     std::string birthday;
     std::string phoneNumber;
     std::string address;
-    ContactType type;  // Adaug„ membrul type
+    ContactType type;  // Adaug√£ membrul type
 };
 
 // Derived class Acquaintance
@@ -62,7 +62,7 @@ public:
 
 private:
     std::string phoneNumber;
-    ContactType type;  // Adaug„ membrul type
+    ContactType type;  // Adaug√£ membrul type
 };
 
 // Derived class Colleague
@@ -81,7 +81,7 @@ private:
     std::string phoneNumber;
     std::string company;
     std::string address;
-    ContactType type;  // Adaug„ membrul type
+    ContactType type;  // Adaug√£ membrul type
 };
 
 // Class Agenda
