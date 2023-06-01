@@ -1,0 +1,49 @@
+1.Configurarea mediului:
+
+Vcpkg:
+a)Am descărcat Vcpkg:
+Am accesat pagina de descărcare a Vcpkg pe GitHub: https://github.com/microsoft/vcpkg.
+Am dat click pe butonul "Code" și am ales opțiunea "Download ZIP" pentru a descărca Vcpkg în formatul de arhivă ZIP.
+b)Am extras arhiva Vcpkg:
+După finalizarea descărcării, am extras conținutul arhivei ZIP într-un director local de pe calculator.
+c)Am finalizat configurarea mediului de lucru:
+Am deschis o fereastră de comandă (Command Prompt) și am mers la directorul Vcpkg pe care l-am extras anterior.
+Am rulat comanda bootstrap-vcpkg.bat pentru a configura mediul de lucru Vcpkg.
+d)Am adăugat Vcpkg în variabila de mediu PATH:
+Pentru a putea utiliza Vcpkg din orice director, am adăugat calea directorului Vcpkg la variabila de mediu PATH a sistemului meu de operare.
+
+Instalarea bibliotecii Catch2:
+a)Am deschis o fereastră de comandă (Command Prompt) și am mers din nou la directorul Vcpkg.
+b)Am rulat comanda vcpkg install catch2 pentru a începe instalarea bibliotecii Catch2.
+c)Vcpkg a descărcat, compilat și instalat biblioteca Catch2 și orice dependențe necesare.
+CMakeLists.txt:
+a)Am configurat fișierul CMakeLists.txt pentru a utiliza Vcpkg și a include biblioteca Catch2 în proiectul meu.
+b)Am adăugat o secțiune find_package pentru a căuta și găsi Vcpkg, care este instalat local în proiect. Prin intermediul acestui pas, CMake poate găsi și utiliza biblioteca Catch2 instalată prin Vcpkg.
+c)Am adăugat și o secțiune target_link_libraries pentru a lega biblioteca Catch2 de proiectul meu, astfel încât să pot utiliza funcționalitatea acesteia în cod.
+
+
+2.Crearea sau refolosirea containerului:
+
+Am creat o clasă  nouă numită Container, care reprezintă un container simplu pentru stocarea elementelor de tip întreg, fără să refolosesc una veche.
+Am definit constructorul Container, care primește un parametru size pentru a specifica dimensiunea containerului și alocă un tablou dinamic de dimensiunea respectivă.
+Metoda addElement permite adăugarea elementelor în container. Ea verifică dacă există încă spațiu disponibil în container. Dacă da, adaugă elementul în următoarea poziție disponibilă și mărește indexul curent. Dacă containerul este deja plin, aruncă o excepție std::overflow_error cu un mesaj corespunzător.
+Metoda getElement permite accesarea elementului din container la un anumit index. Verifică dacă indexul este valid și dacă da, returnează elementul corespunzător. Dacă indexul nu este valid, aruncă o excepție std::out_of_range cu un mesaj corespunzător.
+Destructorul ~Container este responsabil de eliberarea memoriei alocate dinamic pentru tabloul de elemente.
+
+
+3.Scopul testelor
+
+•testAddingElements: Acest test verifică dacă containerul poate adăuga cu succes elemente până la capacitatea sa fără a arunca excepții. Se creează un container cu o capacitate de 3, se adaugă trei elemente (10, 20, 30), iar apoi se verifică dacă dimensiunea containerului este egală cu 3.
+
+•testAccessingElements: Acest test se asigură că containerul stochează și recuperează corect elementele. Se creează un container cu o capacitate de 2, se adaugă două elemente (10, 20), iar apoi se verifică dacă elementul de la indexul 0 este egal cu 10 și elementul de la indexul 1 este egal cu 20.
+
+•testAccessingInvalidIndexThrowsException: Acest test verifică dacă containerul aruncă o excepție atunci când se încearcă accesarea unui element la un index invalid. Se creează un container cu o capacitate de 1, se adaugă un element (10), iar apoi se încearcă accesarea elementului de la indexul 1. Se așteaptă aruncarea unei excepții std::out_of_range cu mesajul "Index invalid".
+
+•testAddingMoreElementsThanCapacityThrowsException: Acest test verifică dacă containerul aruncă o excepție atunci când se încearcă adăugarea de elemente mai mult decât permite capacitatea sa. Se creează un container cu o capacitate de 2, se adaugă două elemente (10, 20), iar apoi se încearcă adăugarea unui alt element (30). Se așteaptă aruncarea unei excepții std::overflow_error cu mesajul "Container plin".
+
+•testAccessingElementsAfterAddingMoreThanCapacity: Acest test se asigură că containerul aruncă o excepție atunci când se încearcă accesarea unui element în afara intervalului valid. Se creează un container cu o capacitate de 2, se adaugă două elemente (10, 20), iar apoi se încearcă accesarea elementului de la indexul 2. Se așteaptă aruncarea unei excepții std::out_of_range cu mesajul "Index invalid".
+
+•testEmptyContainerSize: Acest test verifică dacă un container gol are o dimensiune de 0. Se creează un container gol și se verifică dacă dimensiunea sa este egală cu 0.
+
+•testAccessingElementInEmptyContainerThrowsException: Acest test verifică dacă containerul aruncă o excepție atunci când se încearcă accesarea unui element într-un container gol. Se creează un container gol și se încearcă accesarea elementului de la indexul 0. Se așteaptă aruncarea unei excepții std::out_of_range cu mesajul "Index invalid".
+
